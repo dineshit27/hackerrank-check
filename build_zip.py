@@ -7,8 +7,10 @@ zip_path = os.path.join(root, 'code.zip')
 # Files and directories to include
 INCLUDE_FILES = [
     'code/main.py',
+    'code/diagnose_complete_cases.py',
     'evaluation/evaluation_report.md',
     'evaluation/usage_report.md',
+    'evaluation/complete_case_diagnostics.md',
     'README.md',
     'AGENTS.md',
     'CLAUDE.md',
