@@ -13,7 +13,7 @@ The comparison is structural and treats JSON key order as insignificant. The rem
 
 ## Full-dataset structural check
 
-The generator wrote 518 rows, in numerical `case_id` order, with the required header. The available structural validator reported 65 failures: each was a `COMPLETE` row with an empty verification array. The corresponding evidence inventory is `evaluation/complete_case_diagnostics.md`: 45 affected cases have no identity-matched, pre-cutoff observation, while the remaining 20 have observations that do not prove all required compliant states. Therefore this output is not claimed to be structurally compliant.
+The generator wrote 518 rows, in numerical `case_id` order, with the required header. Following AGENTS.md §6.5, 65 previously unsupported COMPLETE rows were reclassified to INCOMPLETE because no evidence proves every required compliant state. The strict validator still reports 65 failures because those authorized cases have empty plans: 45 have no identity-matched, pre-cutoff observation, while the remaining 20 have observations that do not prove all required compliant states. The corresponding inventory is `evaluation/complete_case_diagnostics.md`. Therefore this output is not claimed to be structurally compliant.
 
 ## Regression coverage performed
 

@@ -946,7 +946,11 @@ class DeletionAuditEngine:
             verification_steps.sort(key=lambda s: (VERIFICATION_ORDER.index(s['operation']), s['system_id'], s['resource_id']))
             all_steps = finding_steps + remediation_steps + verification_steps
         else:
-            status = "COMPLETE"
+            # An authorized request is COMPLETE only when the available evidence
+            # proves every required final state at audit_at (AGENTS.md §6.5).
+            # No observation is not proof of deletion, so do not emit COMPLETE
+            # merely because no violation was found.
+            status = "COMPLETE" if compliant_steps else "INCOMPLETE"
             compliant_steps.sort(key=lambda s: (VERIFICATION_ORDER.index(s['operation']), s['system_id'], s['resource_id']))
             all_steps = compliant_steps
 

@@ -1,4 +1,4 @@
-# COMPLETE Cases Without Verification Evidence
+# Authorized Cases Without Evidence-Grounded Steps
 
 Generated from participant-visible data only. A missing observation is not treated as proof of deletion.
 
@@ -9,7 +9,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-07-19T13:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_35
@@ -18,7 +19,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-09-02T08:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_39
@@ -27,7 +29,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-08-08T10:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_45
@@ -36,7 +39,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-09-06T09:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_50
@@ -45,7 +49,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-07-14T12:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_52
@@ -54,7 +59,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-06-19T14:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_53
@@ -63,7 +69,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-05-25T09:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_55
@@ -72,7 +79,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-30T11:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_61
@@ -81,7 +89,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-02-14T10:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_63
@@ -90,7 +99,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-09-17T09:20:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_83
@@ -99,7 +109,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-09-06T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_08 (2026-09-06T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_84
@@ -108,7 +119,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-09-06T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_08 (2026-09-06T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_85
@@ -117,7 +129,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-09-06T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_08 (2026-09-06T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_86
@@ -126,7 +139,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-09-06T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_08 (2026-09-06T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_87
@@ -135,7 +149,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-09-06T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_08 (2026-09-06T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_88
@@ -144,7 +159,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-09-06T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_08 (2026-09-06T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_89
@@ -153,7 +169,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-09-06T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_08 (2026-09-06T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_90
@@ -162,7 +179,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-09-06T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_08 (2026-09-06T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_91
@@ -171,7 +189,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-09-06T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_08 (2026-09-06T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_92
@@ -180,7 +199,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-09-06T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_08 (2026-09-06T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_133
@@ -189,7 +209,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-08-12T09:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_134
@@ -198,7 +219,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-08-12T09:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_135
@@ -207,7 +229,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-08-12T09:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_136
@@ -216,7 +239,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-08-12T09:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_137
@@ -225,7 +249,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-08-12T09:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_138
@@ -234,7 +259,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-08-12T09:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_139
@@ -243,7 +269,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-08-12T09:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_140
@@ -252,7 +279,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-08-12T09:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_141
@@ -261,7 +289,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-08-12T09:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_142
@@ -270,7 +299,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-08-12T09:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_363
@@ -279,7 +309,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-19T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_364
@@ -288,7 +319,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-19T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_365
@@ -297,7 +329,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-19T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_366
@@ -306,7 +339,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-19T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_367
@@ -315,7 +349,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-19T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_368
@@ -324,7 +359,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-19T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_369
@@ -333,7 +369,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-19T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_370
@@ -342,7 +379,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-19T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_371
@@ -351,7 +389,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-19T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_372
@@ -360,7 +399,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-19T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_383
@@ -369,7 +409,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-09T12:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_384
@@ -378,7 +419,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-09T12:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_385
@@ -387,7 +429,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-09T12:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_386
@@ -396,7 +439,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-09T12:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_387
@@ -405,7 +449,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-09T12:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_388
@@ -414,7 +459,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-09T12:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_389
@@ -423,7 +469,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-09T12:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_390
@@ -432,7 +479,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-09T12:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_391
@@ -441,7 +489,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-09T12:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_392
@@ -450,7 +499,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-04-09T12:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_416
@@ -459,7 +509,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-03-25T09:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_417
@@ -468,7 +519,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-03-25T09:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_433
@@ -477,7 +529,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-03-15T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_41 (2026-03-15T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_434
@@ -486,7 +539,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-03-15T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_41 (2026-03-15T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_435
@@ -495,7 +549,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-03-15T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_41 (2026-03-15T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_436
@@ -504,7 +559,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-03-15T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_41 (2026-03-15T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_437
@@ -513,7 +569,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-03-15T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_41 (2026-03-15T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_438
@@ -522,7 +579,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-03-15T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_41 (2026-03-15T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_439
@@ -531,7 +589,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-03-15T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_41 (2026-03-15T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_440
@@ -540,7 +599,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-03-15T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_41 (2026-03-15T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_441
@@ -549,7 +609,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-03-15T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_41 (2026-03-15T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_442
@@ -558,7 +619,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-03-15T07:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: evidence_41 (2026-03-15T07:00:00Z)
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_517
@@ -567,7 +629,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-02-03T06:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_519
@@ -576,7 +639,8 @@ Affected cases: **65**.
 - Audit cutoff: `2026-02-03T06:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.
 
 ## case_521
@@ -585,5 +649,6 @@ Affected cases: **65**.
 - Audit cutoff: `2026-02-03T06:00:00Z`
 - Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.
 - Matched evidence at or before cutoff: none
-- Verification failure: no matching evidence observation establishes a compliant resource state; the current `COMPLETE` result is therefore unsupported.
+- Current status: `INCOMPLETE`.
+- Step-generation limitation: no matching evidence observation establishes a compliant resource state or a supported remaining-record/risk finding.
 - Evidence supports COMPLETE at audit_at: **no**.

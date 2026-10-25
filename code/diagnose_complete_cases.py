@@ -1,4 +1,4 @@
-"""Write an evidence inventory for COMPLETE rows without verification steps."""
+"""Write an evidence inventory for authorized rows without supported steps."""
 import csv
 import json
 from pathlib import Path
@@ -19,7 +19,7 @@ def main():
         rules = list(csv.DictReader(f))
 
     lines = [
-        "# COMPLETE Cases Without Verification Evidence",
+        "# Authorized Cases Without Evidence-Grounded Steps",
         "",
         "Generated from participant-visible data only. A missing observation is not treated as proof of deletion.",
         "",
@@ -27,7 +27,7 @@ def main():
     count = 0
     for req in requests:
         status, steps = engine.audit_request(req)
-        if status != "COMPLETE" or steps:
+        if status == "NOT_APPLICABLE" or steps:
             continue
         count += 1
         uid = engine.users_by_email.get(req["email"].lower())
@@ -47,8 +47,9 @@ def main():
             "- Applicable rules: USER_PROFILE=DELETE; SECURITY_AUDIT_LOG=RETAIN; "
             "ACCOUNT_TOMBSTONE=REDACT when present; plus any resource-specific rule identified by evidence.",
             "- Matched evidence at or before cutoff: " + (", ".join(evidence) if evidence else "none"),
-            "- Verification failure: no matching evidence observation establishes a compliant resource state; "
-            "the current `COMPLETE` result is therefore unsupported.",
+            f"- Current status: `{status}`.",
+            "- Step-generation limitation: no matching evidence observation establishes a compliant resource state "
+            "or a supported remaining-record/risk finding.",
             "- Evidence supports COMPLETE at audit_at: **no**.",
             "",
         ])
