@@ -14,6 +14,7 @@ import os
 import re
 import sqlite3
 import sys
+import zlib
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -64,7 +65,7 @@ def extract_pdf_streams(filepath: str) -> str:
                     raw = base64.a85decode(s_data, adobe=True)
                 except Exception:
                     pass
-                decompressed = base64.zlib.decompress(raw)
+                decompressed = zlib.decompress(raw)
                 texts.append(decompressed.decode('utf-8', errors='ignore'))
             except Exception:
                 pass
@@ -279,15 +280,25 @@ class DeletionAuditEngine:
                 with open(p, 'r', encoding='utf-8') as f:
                     d = json.load(f)
                 sexp = d.get('service_exports', {})
+
+                for r in sexp.get('account_service', {}).get('profile_lookups', []):
+                    prof = r.get('profile') or {}
+                    em = prof.get('email')
+                    sc = r.get('status_code')
+                    rid = r.get('resource_id')
+                    uid = prof.get('customer_reference')
+                    if not uid and em and em.lower() in self.users_by_email:
+                        uid = self.users_by_email[em.lower()]
+                    if uid and rid:
+                        self.accts_by_user[uid] = rid
                 for r in sexp.get('account_service', {}).get('profile_lookups', []):
                     rid = r.get('resource_id')
                     sc = r.get('status_code')
                     prof = r.get('profile') or {}
                     uid = prof.get('customer_reference')
                     em = prof.get('email')
-                    if uid and rid: self.accts_by_user[uid] = rid
-                    elif em and em.lower() in self.users_by_email:
-                        self.accts_by_user[self.users_by_email[em.lower()]] = rid
+                    if not uid and em and em.lower() in self.users_by_email:
+                        uid = self.users_by_email[em.lower()]
                     self.ev_obs.append({
                         'file_id': fid, 'captured_at': cap, 'system_id': 'account_service',
                         'resource_id': rid, 'user_id': uid,
@@ -300,12 +311,15 @@ class DeletionAuditEngine:
                     em = r.get('email')
                     ph = r.get('phone')
                     eh = r.get('email_hash')
+                    if not uid and em and em.lower() in self.users_by_email:
+                        uid = self.users_by_email[em.lower()]
                     stat = 'IDENTIFIABLE' if (uid or em or ph or eh) else 'ANONYMIZED'
                     self.ev_obs.append({
                         'file_id': fid, 'captured_at': cap, 'system_id': 'analytics_platform',
                         'resource_id': rid, 'user_id': uid, 'email': em.lower() if em else None,
                         'phone': ph, 'hash': eh, 'status': stat
                     })
+
                 for r in sexp.get('backup_service', {}).get('restore_entries', []):
                     rid = r.get('resource_id')
                     uid = r.get('customer_reference')
@@ -320,6 +334,8 @@ class DeletionAuditEngine:
                     rid = r.get('resource_id')
                     uid = r.get('customer_reference')
                     em = r.get('owner_email')
+                    if not uid and em and em.lower() in self.users_by_email:
+                        uid = self.users_by_email[em.lower()]
                     self.ev_obs.append({
                         'file_id': fid, 'captured_at': cap, 'system_id': 'export_service',
                         'resource_id': rid, 'user_id': uid, 'email': em.lower() if em else None,
@@ -329,6 +345,8 @@ class DeletionAuditEngine:
                     rid = r.get('resource_id')
                     uid = r.get('customer_reference')
                     em = r.get('customer_email')
+                    if not uid and em and em.lower() in self.users_by_email:
+                        uid = self.users_by_email[em.lower()]
                     en = r.get('enabled', False)
                     self.ev_obs.append({
                         'file_id': fid, 'captured_at': cap, 'system_id': 'integration_service',
@@ -342,9 +360,14 @@ class DeletionAuditEngine:
                     doc_em = hits[0].get('email') if hits else None
                     doc_uid = hits[0].get('customer_reference') if hits else None
                     tot = r.get('hits', {}).get('total', 0)
+                    if not doc_uid and doc_em and doc_em.lower() in self.users_by_email:
+                        doc_uid = self.users_by_email[doc_em.lower()]
+                    rid_to_use = rid
+                    if not rid_to_use and hits:
+                        rid_to_use = hits[0].get('resource_id')
                     self.ev_obs.append({
                         'file_id': fid, 'captured_at': cap, 'system_id': 'search_service',
-                        'resource_id': rid, 'user_id': doc_uid,
+                        'resource_id': rid_to_use, 'user_id': doc_uid,
                         'email': (doc_em or q).lower() if (doc_em or q) else None,
                         'status': 'FOUND' if tot > 0 else 'NOT_FOUND'
                     })
@@ -362,6 +385,8 @@ class DeletionAuditEngine:
                     em = r.get('requester_email')
                     ph = r.get('requester_phone')
                     nm = r.get('requester_name')
+                    if not uid and em and em.lower() in self.users_by_email:
+                        uid = self.users_by_email[em.lower()]
                     stat = 'IDENTIFIABLE' if (em or ph or nm) else 'REDACTED'
                     self.ev_obs.append({
                         'file_id': fid, 'captured_at': cap, 'system_id': 'support_platform',
@@ -669,19 +694,36 @@ class DeletionAuditEngine:
                             'status': stat
                         })
 
-        # --- D. Documents (PDFs) ---
-        self.ev_obs.append({
-            'file_id': 'evidence_58', 'captured_at': '2026-09-12T07:30:00Z',
-            'system_id': 'support_platform', 'resource_id': 'support_001',
-            'email': 'priya.raman@gmail.com', 'name': 'Priya Raman',
-            'status': 'FOUND', 'category': 'ATTACHMENT'
-        })
-        self.ev_obs.append({
-            'file_id': 'evidence_18', 'captured_at': '2026-07-18T11:00:00Z',
-            'system_id': 'export_service', 'resource_id': 'export_1842',
-            'email': 'ingrid.dahl@outlook.com', 'user_id': 'user_18',
-            'status': 'FOUND'
-        })
+        # --- D. Documents (PDFs & Images) ---
+        # Parse PDF evidence files to extract resource and identity information.
+        for p in glob.glob(os.path.join(ev_dir, 'documents', '*.pdf')):
+            fid, cap = get_meta(p)
+            if not fid: continue
+            text = extract_pdf_streams(p)
+            if not text: continue
+            # Extract emails, user_ids, resource_ids from text content
+            emails = set(re.findall(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+', text))
+            uids = set(re.findall(r'user_\d+', text))
+            rids = re.findall(r'(?:support|export|account|search|analytics|backup|data_flow)_[a-zA-Z0-9]+', text)
+            for rid in rids:
+                em = list(emails)[0].lower() if emails else None
+                uid = list(uids)[0] if uids else None
+                sys_id = 'support_platform' if rid.startswith('support') else \
+                         'export_service' if rid.startswith('export') else \
+                         'account_service' if rid.startswith('account') else \
+                         'analytics_platform' if rid.startswith('analytics') else \
+                         'backup_service' if rid.startswith('backup') else \
+                         'integration_service' if rid.startswith('data_flow') else \
+                         'search_service'
+                stat = 'FOUND'
+                if not uid and em and em in self.users_by_email:
+                    uid = self.users_by_email[em]
+                cat = 'ATTACHMENT' if 'attachment' in fid.lower() or 'delivery' in p.lower() else None
+                self.ev_obs.append({
+                    'file_id': fid, 'captured_at': cap, 'system_id': sys_id,
+                    'resource_id': rid, 'user_id': uid, 'email': em,
+                    'status': stat, 'category': cat
+                })
 
     def audit_request(self, req: dict):
         text = req.get('request_text', '')
@@ -840,27 +882,30 @@ class DeletionAuditEngine:
                     'operation': 'VERIFY_RECORD_PRESENT', 'state': 'PRESENT', 'evidence_id': fid
                 })
 
-        # Account fallback if not in evidence
+        # Account fallback if not in evidence: search system_activity for DELETE_RECORD events
+        # that reference an account resource_id for this user (matched by request email/user_id).
+        # This avoids hardcoded case-specific mappings.
         if not account_res_id:
-            # Special case mapping for public sample cases 1-10 if needed
-            if cid.startswith('case_0') or cid == 'case_10':
-                c_num = cid.split('_')[1]
-                # Zero-pad to 3 digits to match expected format (account_001, account_002 etc.)
-                account_res_id = f"account_{int(c_num):03d}"
-            else:
-                t_rep = datetime.datetime.fromisoformat(rep_at.replace('Z', '+00:00'))
-                best_act = None
-                min_diff = None
-                for a in self.system_activities:
-                    if a['target_system'] == 'account_service' and a['event_type'] == 'DELETE_RECORD':
-                        t_a = datetime.datetime.fromisoformat(a['event_time'].replace('Z', '+00:00'))
-                        diff = abs((t_a - t_rep).total_seconds())
-                        if diff <= 7200:
-                            if min_diff is None or diff < min_diff:
-                                min_diff = diff
-                                best_act = a
-                if best_act:
-                    account_res_id = best_act['resource_id']
+            # Try to find account resource_id via system_activity DELETE events
+            # and cross-reference with user identity via email match in activity details
+            user_emails = self.users.get(user_id, {}).get('emails', set()) if user_id else set()
+            for a in self.system_activities:
+                if (a.get('target_system') == 'account_service' and
+                        a.get('event_type') in ('DELETE_RECORD', 'REDACT_RECORD', 'ANONYMIZE_RECORD') and
+                        a.get('event_time', '') <= audit_at):
+                    rid_cand = a.get('resource_id', '')
+                    if rid_cand and rid_cand.startswith('account_'):
+                        details = a.get('details', '').lower()
+                        # Check if any of user's emails or user_id appears in details
+                        if user_id and user_id in details:
+                            account_res_id = rid_cand
+                            break
+                        for em_u in user_emails:
+                            if em_u in details:
+                                account_res_id = rid_cand
+                                break
+                        if account_res_id:
+                            break
 
         if findings:
             status = "INCOMPLETE"
@@ -902,13 +947,6 @@ class DeletionAuditEngine:
             all_steps = finding_steps + remediation_steps + verification_steps
         else:
             status = "COMPLETE"
-            has_acct = any(s['system_id'] == 'account_service' for s in compliant_steps)
-            if not has_acct and account_res_id:
-                ev_id = compliant_steps[0]['evidence_id'] if compliant_steps else "evidence_54"
-                compliant_steps.append({
-                    'phase': 'VERIFICATION', 'system_id': 'account_service', 'resource_id': account_res_id,
-                    'operation': 'VERIFY_RECORD_ABSENT', 'state': 'ABSENT', 'evidence_id': ev_id
-                })
             compliant_steps.sort(key=lambda s: (VERIFICATION_ORDER.index(s['operation']), s['system_id'], s['resource_id']))
             all_steps = compliant_steps
 
