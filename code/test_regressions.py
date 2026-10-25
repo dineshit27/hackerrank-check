@@ -32,12 +32,28 @@ class EvidenceDecisionTests(unittest.TestCase):
 
     def test_post_cutoff_observations_are_not_selected(self):
         request = next(r for r in self.requests if r["case_id"] == "case_33")
-        uid = self.engine.users_by_email[request["email"].lower()]
-        selected = [o for o in self.engine.ev_obs if o["captured_at"] <= request["audit_at"]
-                    and self.engine.user_matches(uid, item_uid=o.get("user_id"),
-                                                 item_email=o.get("email"), item_phone=o.get("phone"),
-                                                 item_name=o.get("name"), item_hash=o.get("hash"))]
-        self.assertEqual(selected, [])
+        status, steps = self.engine.audit_request(request)
+        self.assertTrue(steps)
+        for s in steps:
+            ev_id = s.get("evidence_id")
+            if ev_id and ev_id in self.engine.ev_manifest:
+                self.assertLessEqual(self.engine.ev_manifest[ev_id]["captured_at"], request["audit_at"])
+
+    def test_log_system_field_is_used_over_service_field(self):
+        request = next(r for r in self.requests if r["case_id"] == "case_433")
+        status, steps = self.engine.audit_request(request)
+        self.assertTrue(steps, "identity-linked log lookups must produce steps")
+        finding_systems = {s["system_id"] for s in steps if s["phase"] == "FINDING"}
+        self.assertNotIn("downstream_delivery_service", finding_systems)
+        self.assertTrue({"search_service", "integration_service"} & finding_systems)
+
+    def test_later_account_not_found_overrides_earlier_found(self):
+        request = next(r for r in self.requests if r["case_id"] == "case_86")
+        status, steps = self.engine.audit_request(request)
+        account_ops = [s for s in steps if s["resource_id"] == "account_8473"]
+        self.assertTrue(account_ops)
+        self.assertFalse(any(s["operation"] == "REPORT_REMAINING_RECORD" and s["resource_id"] == "account_8473"
+                             for s in steps))
 
 
 if __name__ == "__main__":
