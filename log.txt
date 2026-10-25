@@ -9,6 +9,62 @@ Parent Agent: none
 Language: py
 Time Remaining: not configured
 
+## [2026-10-25T17:23:00+05:30] Apply case_17 temporal evidence fix
+
+User Prompt (verbatim, secrets redacted):
+Implement the approved, minimal, evidence-supported fix identified in evaluation/sample_mismatch_analysis.md. Scope: case_17 root cause only. Do not modify unrelated logic. Verify the evidence and deletion rules, add focused tests, run regressions/sample/full validation, update confirmed reports, rebuild deliverables, and do not push or submit.
+
+Agent Response Summary:
+Verified the stale pre-request tombstone and contemporaneous subject-linked observations for case_17. Applied and tested the request-to-audit observation window and subject-linked account preference, then generated and structurally validated the full output. Public-sample exact arrays improved from 16/32 to 17/32 with statuses remaining 32/32; no unsupported anonymous associations were added.
+
+Actions:
+* Ran code/test_regressions.py, sample generation/comparison, full generation, and scratch_validate_root_output.py using the local Python 3.10 interpreter.
+* Updated code/test_regressions.py, evaluation reports, output.csv, and code.zip; verified archive contents.
+
+Context:
+tool=Codex
+model=GPT-5
+branch=main
+repo_root=C:\Users\dinesh\Downloads\hackerrank-orchestrate-october26-main\hackerrank-orchestrate-october26-main
+worktree=main
+parent_agent=none
+
+## [2026-10-25T16:36:29+05:30] Improve public sample evidence resolution
+
+User Prompt (verbatim, secrets redacted):
+Continue working on my existing HackerRank Orchestrate October 2026 project, “Ghost Data Still Exists,” in the current VS Code workspace.
+
+Repository: https://github.com/dineshit27/hackerrank-check
+
+Do not rewrite the project from scratch or discard existing changes. First priority: improve the public sample accuracy; inspect the project contract and evidence, run the 32 sample cases, repair general logic in code/main.py, regenerate and validate the 518-row output, update reports only with confirmed results, rebuild and inspect code.zip, and do not push or submit.
+
+Agent Response Summary:
+Read the project contract and participant-facing sample/evidence files, then independently verified the published 32/32 status and 14/32 exact-step baseline. Corrected evidence-source precedence, native object-storage handling, and service-export observation times; confirmed 32/32 status and 16/32 exact steps, regenerated the 518-row output, passed regression and structural validation, and rebuilt the archive without dataset or bytecode files. No GitHub push or HackerRank submission was performed.
+
+Actions:
+* Read AGENTS.md, problem_statement.md, dataset/sample_output.csv, evidence manifest, generator, tests, and reports.
+* Ran public-sample generation/comparison, regression tests, full generation, CSV validators, and archive inspection.
+* Edited code/main.py, evaluation/evaluation_report.md, code/evaluation/evaluation_report.md, output.csv, and code.zip.
+
+Context:
+tool=Codex
+model=GPT-5
+branch=main
+repo_root=C:\Users\dinesh\Downloads\hackerrank-orchestrate-october26-main\hackerrank-orchestrate-october26-main
+worktree=main
+parent_agent=none
+
+## [2026-10-25T17:15:00+05:30] SESSION START
+
+tool=Codex
+model=GPT-5
+Repo Root: C:\Users\dinesh\Downloads\hackerrank-orchestrate-october26-main\hackerrank-orchestrate-october26-main
+Branch: main
+Worktree: main
+Parent Agent: none
+Language: py
+Time Remaining: not configured
+
 ## [2026-10-25T13:37:12+05:30] Audit and optimize existing submission
 
 User Prompt (verbatim, secrets redacted):
@@ -264,6 +320,165 @@ Actions:
 Context:
 tool=Antigravity IDE
 model=gemini-3.8-flash
+branch=main
+repo_root=C:\Users\dinesh\Downloads\hackerrank-orchestrate-october26-main\hackerrank-orchestrate-october26-main
+worktree=main
+parent_agent=none
+## [2026-10-25T16:30:08+05:30] SESSION START
+
+tool=Codex
+model=GPT-5
+Repo Root: C:\Users\dinesh\Downloads\hackerrank-orchestrate-october26-main\hackerrank-orchestrate-october26-main
+Branch: main
+Worktree: main
+Parent Agent: none
+Language: py
+Time Remaining: not configured
+
+
+## [2026-10-25T16:36:29+05:30] Improve public sample evidence resolution
+
+User Prompt (verbatim, secrets redacted):
+Continue working on my existing HackerRank Orchestrate October 2026 project, “Ghost Data Still Exists,” in the current VS Code workspace.
+
+Repository: https://github.com/dineshit27/hackerrank-check
+
+Do not rewrite the project from scratch or discard existing changes. First priority: improve the public sample accuracy; inspect the project contract and evidence, run the 32 sample cases, repair general logic in code/main.py, regenerate and validate the 518-row output, update reports only with confirmed results, rebuild and inspect code.zip, and do not push or submit.
+
+Agent Response Summary:
+Read the project contract and participant-facing sample/evidence files, then independently verified the published 32/32 status and 14/32 exact-step baseline. Corrected evidence-source precedence, native object-storage handling, and service-export observation times; confirmed 32/32 status and 16/32 exact steps, regenerated the 518-row output, passed regression and structural validation, and rebuilt the archive without dataset or bytecode files. No GitHub push or HackerRank submission was performed.
+
+Actions:
+* Read AGENTS.md, problem_statement.md, dataset/sample_output.csv, evidence manifest, generator, tests, and reports.
+* Ran public-sample generation/comparison, regression tests, full generation, CSV validators, and archive inspection.
+* Edited code/main.py, evaluation/evaluation_report.md, code/evaluation/evaluation_report.md, output.csv, and code.zip.
+
+Context:
+tool=Codex
+model=GPT-5
+branch=main
+repo_root=C:\Users\dinesh\Downloads\hackerrank-orchestrate-october26-main\hackerrank-orchestrate-october26-main
+worktree=main
+parent_agent=none
+
+## [2026-10-25T16:58:46+05:30] Forensic public-sample mismatch analysis
+
+User Prompt (verbatim, secrets redacted):
+Continue from the current working state. Do not push to GitHub or submit to HackerRank.
+
+Our latest public sample result is 32/32 status matches and 16/32 exact step-array matches. The remaining mismatches are case_03, case_04, case_17, case_18, case_20–case_23, and case_25–case_32.
+
+Perform a forensic mismatch analysis before changing code. Compare all differing fields and trace them to participant-visible evidence, identities, timestamps, rules, and cutoffs; create evaluation/sample_mismatch_analysis.md; distinguish justified bugs from unsupported reference associations; show the analysis and proposed changes before risky modifications; do not rebuild code.zip.
+
+Agent Response Summary:
+Ran a fresh 32-case comparison and traced every mismatch to participant-facing records, activities, identity mappings, policy, and cutoff time. Added the requested diagnostic report without changing production code, tests, output, reports, or the archive. The analysis identifies one narrow supported temporal/account-resolution fix for case_17 and finds the other 15 mismatches rely on anonymous or unlinked resource associations not established by visible evidence.
+
+Actions:
+* Ran sample generation to a permitted temporary directory and field-level JSON comparison.
+* Inspected deletion rules, identity/audit records, evidence files, and activity rows.
+* Added evaluation/sample_mismatch_analysis.md.
+
+Context:
+tool=Codex
+model=GPT-5
+branch=main
+repo_root=C:\Users\dinesh\Downloads\hackerrank-orchestrate-october26-main\hackerrank-orchestrate-october26-main
+worktree=main
+parent_agent=none
+
+## [2026-10-25T17:27:00+05:30] Complete case_17 temporal evidence fix
+
+User Prompt (verbatim, secrets redacted):
+Implement the approved minimal case_17 fix, verify it, update confirmed reports, rebuild deliverables, and do not push or submit.
+
+Agent Response Summary:
+Verified participant-visible case_17 evidence and policy, applied the requested time-window and account-selection behavior, and added focused regressions. The test suite passed, sample comparison improved by one exact array with all statuses retained, and the regenerated 518-case output passed structural validation. Rebuilt and inspected code.zip; no remote push or HackerRank submission was performed.
+
+Actions:
+* Ran regression, sample-comparison, generation, validation, and archive-inspection commands.
+* Updated targeted tests, confirmed evaluation reports, output.csv, and code.zip.
+
+Context:
+tool=Codex
+model=GPT-5
+branch=main
+repo_root=C:\Users\dinesh\Downloads\hackerrank-orchestrate-october26-main\hackerrank-orchestrate-october26-main
+worktree=main
+parent_agent=none
+
+## [2026-10-25T17:40:00+05:30] Final pre-submission audit
+
+User Prompt (verbatim, secrets redacted):
+Perform the final pre-submission audit: verify logging, rerun tests and full validation, inspect output and archive, confirm reports and submission requirements, and do not push or submit.
+
+Agent Response Summary:
+The full regression suite and 518-row structural validation passed, and the archive opened with required files present. A fresh public-sample comparison reproducibly found case_07 status mismatching the reference, so the report's stated 32/32 status and 17/32 exact-array results are not current. The transcript has non-monotonic history and prior push claims, preventing append-only provenance certification.
+
+Actions:
+* Ran regression, full-generation, structural-validation, sample-comparison, archive-integrity, and transcript-inspection commands.
+
+Context:
+tool=Codex
+model=GPT-5
+branch=main
+repo_root=C:\Users\dinesh\Downloads\hackerrank-orchestrate-october26-main\hackerrank-orchestrate-october26-main
+worktree=main
+parent_agent=none
+
+## [2026-10-25T17:50:00+05:30] Fix case_07 PDF identity nondeterminism
+
+User Prompt (verbatim, secrets redacted):
+Investigate and fix the reproducible case_07 status regression; use evidence, add a regression, rerun validation, update reports, do not rebuild the archive, push, or submit.
+
+Agent Response Summary:
+Found that unordered PDF email extraction alternated between the subject address and an unrelated embedded-font metadata address, causing case_07 to vary between COMPLETE and INCOMPLETE. Implemented deterministic resolution that accepts only explicit known user IDs or an unambiguous known-email subject, and added regression coverage. Ten tests passed; eight fresh sample processes all produced the supported incomplete result; the 518-row output passed structural validation.
+
+Actions:
+* Inspected case_07 request, support attachment, identity, policy, parser observations, and reference output.
+* Updated code/main.py, code/test_regressions.py, evaluation reports, output.csv, and sample_test_output.csv; did not rebuild code.zip.
+
+Context:
+tool=Codex
+model=GPT-5
+branch=main
+repo_root=C:\Users\dinesh\Downloads\hackerrank-orchestrate-october26-main\hackerrank-orchestrate-october26-main
+worktree=main
+parent_agent=none
+
+## [2026-10-25T17:55:00+05:30] Package final case_07 fix
+
+User Prompt (verbatim, secrets redacted):
+Investigate and fix the reproducible case_07 status regression; verify results, update reports, preserve transcript history, and do not push or submit.
+
+Agent Response Summary:
+After the evidence-backed parser fix and verification run, rebuilt code.zip only after code and reports were final. The archive passed integrity checks, contains the current required sources and reports, and excludes datasets and caches. Historical transcript content was not rewritten; the prior append-only provenance concern remains unresolved.
+
+Actions:
+* Rebuilt and inspected code.zip after confirming report metrics.
+
+Context:
+tool=Codex
+model=GPT-5
+branch=main
+repo_root=C:\Users\dinesh\Downloads\hackerrank-orchestrate-october26-main\hackerrank-orchestrate-october26-main
+worktree=main
+parent_agent=none
+
+## [2026-10-25T18:05:00+05:30] Final submission-readiness disclosure
+
+User Prompt (verbatim, secrets redacted):
+Perform the final submission-readiness check. Preserve transcript history, verify artifacts and reports, disclose unresolved transcript compliance issues, and do not push or submit.
+
+Agent Response Summary:
+Verified the output schema and ordered 518-case coverage, matching final report metrics, and archive integrity. Historical log entries were not modified. The historical append-only provenance cannot be verified from the current checkout because the existing diff contains non-terminal insertions and non-monotonic timestamps; this disclosure does not cure that limitation.
+
+Actions:
+* Ran output, report-consistency, and archive-integrity checks.
+* Appended this disclosure without rewriting prior transcript content.
+
+Context:
+tool=Codex
+model=GPT-5
 branch=main
 repo_root=C:\Users\dinesh\Downloads\hackerrank-orchestrate-october26-main\hackerrank-orchestrate-october26-main
 worktree=main

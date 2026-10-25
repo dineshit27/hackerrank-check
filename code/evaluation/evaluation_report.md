@@ -4,10 +4,15 @@
 
 The deterministic pipeline was run against the 32 public sample requests and evaluated against `dataset/sample_output.csv`.
 
+Latest verified run: `code/test_regressions.py` passed **10/10** tests; the
+sample comparison returned **32/32** status matches and **17/32** exact step
+arrays; the regenerated 518-row `output.csv` passed
+`scratch_validate_root_output.py` with zero validation errors.
+
 | Metric | Result |
 | --- | ---: |
 | Status matches | 32 / 32 (100.0%) |
-| Exact `steps_json` array matches | 14 / 32 (43.8%) |
+| Exact `steps_json` array matches | 17 / 32 (53.1%) |
 
 The evaluation is structural and verifies strict JSON schemas, sequence phases (`FINDING` -> `REMEDIATION` -> `VERIFICATION`), state transitions, and step numbers.
 
@@ -31,8 +36,8 @@ The output was rigorously validated using `scratch_validate_root_output.py` agai
 
 ### Status Distribution Across 518 Cases
 
-- **COMPLETE**: 143 cases (27.6%)
-- **INCOMPLETE**: 365 cases (70.5%)
+- **COMPLETE**: 146 cases (28.2%)
+- **INCOMPLETE**: 362 cases (69.9%)
 - **NOT_APPLICABLE**: 10 cases (1.9%)
 
 ## Custom Evaluation Test Cases (Created by Author)
@@ -71,3 +76,15 @@ Three comprehensive end-to-end regression test cases were authored and executed 
 4. **Marketing Profiles & Attachment Status**:
    - *Failure*: Marketing profiles marked with category `MARKETING` were omitting remediation steps, and support attachments with status `IDENTIFIABLE` were ignored.
    - *Improvement*: Added `DELETE_RECORD` remediation for marketing profiles and expanded attachment status handling to include `IDENTIFIABLE`.
+
+5. **Logs Replacing Stronger State Captures**:
+   - *Failure*: The newest observation was selected without regard to evidence type, allowing a later operational log to replace a database or structured-record state capture for the same resource. Object-storage catalog links were also being treated as support records.
+   - *Improvement*: Prioritized database and structured-record captures over logs when resolving a resource's latest supported state, retained object-storage links in their native system, and preserved per-record observation timestamps from service exports. The confirmed public exact-step result improved from 14/32 to 16/32; status accuracy remained 32/32.
+
+6. **Request-Window State and Account Resolution (case_17)**:
+   - *Failure*: A pre-request tombstone observation was treated as current state, and a stale global account map could override a later account observation explicitly linked to the request subject.
+   - *Improvement*: State-establishing observations now require `requested_at <= observed_at <= audit_at`; the latest qualifying, subject-linked account observation is preferred before global fallback. Regression coverage confirms pre-request exclusion, audit-cutoff exclusion, subject-linked account precedence, and fallback behavior for missing or ambiguous account evidence. The confirmed public exact-step result improved from 16/32 to 17/32; status accuracy remained 32/32.
+
+7. **Non-deterministic PDF Identity Extraction (case_07)**:
+   - *Failure*: The document parser selected the first member of an unordered email set. A support attachment contained the subject email and an unrelated embedded-font metadata address, so process hash randomization could lose the subject link and incorrectly mark the case complete.
+   - *Improvement*: PDF identity resolution now accepts only explicit known user IDs or an unambiguous known-email subject, ignoring unmatched metadata addresses. The regression test covers this input, and eight fresh processes consistently produced the evidence-backed incomplete result.

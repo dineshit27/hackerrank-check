@@ -322,6 +322,46 @@ class DeletionAuditEngine:
             return True
         return False
 
+    def observation_rank(self, observation):
+        """Rank direct state captures above operational logs.
+
+        A log entry is useful corroboration, but it is not stronger evidence of
+        resource state than a database, structured record export, or captured
+        business artifact.  This prevents a later log line from replacing an
+        earlier authoritative snapshot of the same resource.
+        """
+        path = self.ev_manifest.get(observation.get('file_id'), {}).get('file_path', '')
+        if '/databases/' in path or '/records/' in path:
+            return 3
+        if '/documents/' in path or '/images/' in path:
+            return 2
+        return 1
+
+    def resolve_document_identity(self, emails, user_ids):
+        """Return a deterministic, evidence-backed document identity.
+
+        PDF streams can include unrelated addresses from embedded font metadata.
+        Only an explicit known user ID or an unambiguous email that resolves to
+        one known subject may establish the document's subject linkage.
+        """
+        matched_user_ids = sorted({uid for uid in user_ids if uid in self.users})
+        if len(matched_user_ids) > 1:
+            return None, None
+
+        known_emails = sorted({email.lower() for email in emails
+                               if email.lower() in self.users_by_email})
+        email_user_ids = {self.users_by_email[email] for email in known_emails}
+        if len(matched_user_ids) == 1:
+            user_id = matched_user_ids[0]
+        elif len(email_user_ids) == 1:
+            user_id = next(iter(email_user_ids))
+        else:
+            return None, None
+
+        subject_emails = [email for email in known_emails
+                          if self.users_by_email[email] == user_id]
+        return user_id, subject_emails[0] if subject_emails else None
+
     def parse_all_evidence(self):
         ev_dir = os.path.join(self.dataset_dir, 'evidence')
 
@@ -438,7 +478,7 @@ class DeletionAuditEngine:
                     if not uid and em and em.lower() in self.users_by_email:
                         uid = self.users_by_email[em.lower()]
                     self.ev_obs.append({
-                        'file_id': fid, 'captured_at': cap, 'system_id': 'account_service',
+                        'file_id': fid, 'captured_at': r.get('observed_at') or cap, 'system_id': 'account_service',
                         'resource_id': rid, 'user_id': uid,
                         'email': em.lower() if em else None,
                         'phone': prof.get('phone'), 'status': 'NOT_FOUND' if sc == 404 else 'FOUND'
@@ -453,7 +493,7 @@ class DeletionAuditEngine:
                         uid = self.users_by_email[em.lower()]
                     stat = 'IDENTIFIABLE' if (uid or em or ph or eh) else 'ANONYMIZED'
                     self.ev_obs.append({
-                        'file_id': fid, 'captured_at': cap, 'system_id': 'analytics_platform',
+                        'file_id': fid, 'captured_at': r.get('observed_at') or cap, 'system_id': 'analytics_platform',
                         'resource_id': rid, 'user_id': uid, 'email': em.lower() if em else None,
                         'phone': ph, 'hash': eh, 'status': stat
                     })
@@ -464,7 +504,7 @@ class DeletionAuditEngine:
                     em = r.get('customer_email')
                     ra = r.get('restore_allowed', False)
                     self.ev_obs.append({
-                        'file_id': fid, 'captured_at': cap, 'system_id': 'backup_service',
+                        'file_id': fid, 'captured_at': r.get('observed_at') or cap, 'system_id': 'backup_service',
                         'resource_id': rid, 'user_id': uid, 'email': em.lower() if em else None,
                         'status': 'ACTIVE' if ra else 'BLOCKED'
                     })
@@ -475,7 +515,7 @@ class DeletionAuditEngine:
                     if not uid and em and em.lower() in self.users_by_email:
                         uid = self.users_by_email[em.lower()]
                     self.ev_obs.append({
-                        'file_id': fid, 'captured_at': cap, 'system_id': 'export_service',
+                        'file_id': fid, 'captured_at': r.get('observed_at') or cap, 'system_id': 'export_service',
                         'resource_id': rid, 'user_id': uid, 'email': em.lower() if em else None,
                         'status': 'FOUND'
                     })
@@ -487,7 +527,7 @@ class DeletionAuditEngine:
                         uid = self.users_by_email[em.lower()]
                     en = r.get('enabled', False)
                     self.ev_obs.append({
-                        'file_id': fid, 'captured_at': cap, 'system_id': 'integration_service',
+                        'file_id': fid, 'captured_at': r.get('observed_at') or cap, 'system_id': 'integration_service',
                         'resource_id': rid, 'user_id': uid, 'email': em.lower() if em else None,
                         'status': 'ACTIVE' if en else 'DISABLED'
                     })
@@ -504,7 +544,7 @@ class DeletionAuditEngine:
                     if not rid_to_use and hits:
                         rid_to_use = hits[0].get('resource_id')
                     self.ev_obs.append({
-                        'file_id': fid, 'captured_at': cap, 'system_id': 'search_service',
+                        'file_id': fid, 'captured_at': r.get('observed_at') or cap, 'system_id': 'search_service',
                         'resource_id': rid_to_use, 'user_id': doc_uid,
                         'email': (doc_em or q).lower() if (doc_em or q) else None,
                         'status': 'FOUND' if tot > 0 else 'NOT_FOUND'
@@ -514,7 +554,7 @@ class DeletionAuditEngine:
                     uid = r.get('subject_reference')
                     if uid and rid: self.sec_records_by_user[uid] = rid
                     self.ev_obs.append({
-                        'file_id': fid, 'captured_at': cap, 'system_id': 'security_service',
+                        'file_id': fid, 'captured_at': r.get('observed_at') or cap, 'system_id': 'security_service',
                         'resource_id': rid, 'user_id': uid, 'status': 'FOUND'
                     })
                 for r in sexp.get('support_platform', {}).get('tickets', []):
@@ -527,7 +567,7 @@ class DeletionAuditEngine:
                         uid = self.users_by_email[em.lower()]
                     stat = 'IDENTIFIABLE' if (em or ph or nm) else 'REDACTED'
                     self.ev_obs.append({
-                        'file_id': fid, 'captured_at': cap, 'system_id': 'support_platform',
+                        'file_id': fid, 'captured_at': r.get('observed_at') or cap, 'system_id': 'support_platform',
                         'resource_id': rid, 'user_id': uid, 'email': em.lower() if em else None,
                         'phone': ph, 'name': nm, 'status': stat
                     })
@@ -863,8 +903,11 @@ class DeletionAuditEngine:
                 if sys_id == 'security_service' and rid and uid:
                     self.sec_records_by_user[uid] = rid
                 cat = 'ATTACHMENT' if 'attachment' in details.lower() or sys_id == 'object_storage' else None
+                # A catalog link to an object-store key establishes identity
+                # linkage only.  It does not establish a support-ticket record
+                # or its policy category, so retain its native system ID.
                 if sys_id == 'object_storage':
-                    sys_id = 'support_platform'
+                    pass
                 elif sys_id == 'marketing_platform':
                     sys_id = 'analytics_platform'
                     cat = 'MARKETING'
@@ -888,10 +931,9 @@ class DeletionAuditEngine:
             # Extract emails, user_ids, resource_ids from text content
             emails = set(re.findall(r'[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+', text))
             uids = set(re.findall(r'user_\d+', text))
+            uid, em = self.resolve_document_identity(emails, uids)
             rids = re.findall(r'(?:support|export|account|search|analytics|backup|data_flow)_[a-zA-Z0-9]+', text)
             for rid in rids:
-                em = list(emails)[0].lower() if emails else None
-                uid = list(uids)[0] if uids else None
                 sys_id = 'support_platform' if rid.startswith('support') else \
                          'export_service' if rid.startswith('export') else \
                          'account_service' if rid.startswith('account') else \
@@ -900,8 +942,6 @@ class DeletionAuditEngine:
                          'integration_service' if rid.startswith('data_flow') else \
                          'search_service'
                 stat = 'FOUND'
-                if not uid and em and em in self.users_by_email:
-                    uid = self.users_by_email[em]
                 cat = 'ATTACHMENT' if 'attachment' in fid.lower() or 'delivery' in p.lower() else None
                 self.ev_obs.append({
                     'file_id': fid, 'captured_at': cap, 'system_id': sys_id,
@@ -912,6 +952,7 @@ class DeletionAuditEngine:
     def audit_request(self, req: dict):
         text = req.get('request_text', '')
         email = req.get('email', '').strip().lower()
+        requested_at = req.get('requested_at', '')
         audit_at = req.get('audit_at', '')
         rep_at = req.get('reported_at', '')
         cid = req.get('case_id', '')
@@ -925,10 +966,12 @@ class DeletionAuditEngine:
         if not user_id:
             return "NOT_APPLICABLE", []
 
-        # 3. Filter observations <= audit_at and keep the latest state per resource
+        # 3. Only observations made after the request and no later than the
+        # audit can establish the current deletion state.  Older observations
+        # describe a pre-request state, not the outcome being audited.
         user_obs = []
         for o in self.ev_obs:
-            if o['captured_at'] <= audit_at:
+            if requested_at <= o['captured_at'] <= audit_at:
                 if self.user_matches(user_id, item_uid=o.get('user_id'), item_email=o.get('email'),
                                       item_phone=o.get('phone'), item_name=o.get('name'), item_hash=o.get('hash')):
                     user_obs.append(o)
@@ -940,7 +983,10 @@ class DeletionAuditEngine:
                 continue
             key = (sys_id, rid)
             prev = latest_obs.get(key)
-            if not prev or o['captured_at'] >= prev['captured_at']:
+            if (not prev or
+                    self.observation_rank(o) > self.observation_rank(prev) or
+                    (self.observation_rank(o) == self.observation_rank(prev) and
+                     o['captured_at'] >= prev['captured_at'])):
                 latest_obs[key] = o
         user_obs = list(latest_obs.values())
 
@@ -948,7 +994,18 @@ class DeletionAuditEngine:
         compliant_steps = []
         seen_resources = set()
 
-        account_res_id = self.accts_by_user.get(user_id)
+        # Prefer a request-window account observation explicitly matched to the
+        # subject.  The global map is an ingestion convenience and can contain
+        # an older resource for the same user.
+        account_observations = [o for o in user_obs if o['system_id'] == 'account_service']
+        account_res_id = None
+        if account_observations:
+            account_res_id = max(
+                account_observations,
+                key=lambda o: (o['captured_at'], self.observation_rank(o), o['resource_id'])
+            )['resource_id']
+        if not account_res_id:
+            account_res_id = self.accts_by_user.get(user_id)
         sec_audit_id = self.sec_records_by_user.get(user_id)
         sec_ev_id = ""
         latest_ev_id = "evidence_54"
